@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Falconry Taxonomy — Peregrines</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; color: #0d1b2a; line-height: 1.55; }
+    h1 { border-bottom: 2px solid #0d1b2a; padding-bottom: 0.4rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    th, td { border-bottom: 1px solid #ddd; padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #0d1b2a; color: #fff; }
+    a { color: #1a5276; }
+    .note { color: #555; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <p><a href="/">← Peregrines</a></p>
+  <h1>Falconry taxonomy</h1>
+  <p class="note">Product vocabulary for Peregrines / AAIAAS. High-level mapping only — not an internal ops runbook.</p>
+
+  <h2>Actors</h2>
+  <table>
+    <tr><th>Term</th><th>Meaning</th><th>Product mapping</th></tr>
+    <tr><td><strong>Falconer</strong></td><td>Handler who directs the hunt</td><td>Orchestrator — intent, plans, HITL authority (control plane)</td></tr>
+    <tr><td><strong>Peregrine</strong></td><td>Precision hunting bird</td><td>Worker agent — executes tasks on an assigned plane</td></tr>
+    <tr><td><strong>Talon</strong></td><td>Capability used in the strike</td><td>Skill / modular capability (provider-agnostic)</td></tr>
+  </table>
+
+  <h2>Places</h2>
+  <table>
+    <tr><th>Term</th><th>Meaning</th><th>Product mapping</th></tr>
+    <tr><td><strong>Mews</strong></td><td>Permanent housing</td><td>Dev / staging environment</td></tr>
+    <tr><td><strong>Perch</strong></td><td>Observation point</td><td>Operator dashboard (task state, approvals)</td></tr>
+    <tr><td><strong>Field</strong></td><td>Hunting ground</td><td>Target execution environment</td></tr>
+  </table>
+
+  <h2>Controls</h2>
+  <table>
+    <tr><th>Term</th><th>Meaning</th><th>Product mapping</th></tr>
+    <tr><td><strong>Hood</strong></td><td>Calm before release</td><td>HITL approval gate</td></tr>
+    <tr><td><strong>Jesses</strong></td><td>Leg straps / limits</td><td>Budget and runaway limits</td></tr>
+    <tr><td><strong>Creance</strong></td><td>Training tether</td><td>Control-plane tether (heartbeat / recall)</td></tr>
+    <tr><td><strong>Bell</strong></td><td>Always audible</td><td>Telemetry on every lifecycle stage</td></tr>
+  </table>
+
+  <p class="note">Full reference architecture: <a href="https://www.aaiaas.ai/docs/harness-first-agentic-ai">AAIAAS whitepaper</a>. Control plane app: <a href="https://cp.peregrines.ai">cp.peregrines.ai</a>.</p>
+</body>
+</html>
