@@ -1,49 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Falconry Taxonomy — Peregrines</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; color: #0d1b2a; line-height: 1.55; }
-    h1 { border-bottom: 2px solid #0d1b2a; padding-bottom: 0.4rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
-    th, td { border-bottom: 1px solid #ddd; padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
-    th { background: #0d1b2a; color: #fff; }
-    a { color: #1a5276; }
-    .note { color: #555; font-size: 0.9rem; }
+    :root {
+      --bg: #0a0a0f;
+      --fg: #e8e6e3;
+      --muted: #9a9590;
+      --accent: #c8a86e;
+      --accent-dim: #a08050;
+      --card-bg: #14141a;
+      --border: #2a2a35;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    h1 { font-size: 2.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; border-bottom: 2px solid var(--accent-dim); padding-bottom: 0.5rem; }
+    h2 { font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--fg); }
+    p { margin-bottom: 1rem; color: var(--muted); font-size: 1.05rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; }
+    th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { background: var(--card-bg); color: var(--accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    td { color: var(--fg); font-size: 0.95rem; }
+    td:first-child { font-weight: 600; color: var(--accent); white-space: nowrap; }
+    td:last-child { color: var(--muted); }
+    .note { color: var(--muted); font-size: 0.9rem; }
+    .back { display: inline-block; margin-bottom: 2rem; color: var(--accent); text-decoration: none; }
+    .back:hover { opacity: 0.85; }
+    .footer-links { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .footer-links p { font-size: 0.9rem; }
   </style>
 </head>
 <body>
-  <p><a href="/">← Peregrines</a></p>
-  <h1>Falconry taxonomy</h1>
-  <p class="note">Product vocabulary for Peregrines / AAIAAS. High-level mapping only — not an internal ops runbook.</p>
+
+  <a class="back" href="/">&larr; Peregrines</a>
+
+  <h1>Falconry Taxonomy</h1>
+  <p>Product vocabulary for Peregrines. Each term uses a classical falconry metaphor mapped to plain-English system capabilities.</p>
 
   <h2>Actors</h2>
   <table>
-    <tr><th>Term</th><th>Meaning</th><th>Product mapping</th></tr>
-    <tr><td><strong>Falconer</strong></td><td>Handler who directs the hunt</td><td>Orchestrator — intent, plans, HITL authority (control plane)</td></tr>
-    <tr><td><strong>Peregrine</strong></td><td>Precision hunting bird</td><td>Worker agent — executes tasks on an assigned plane</td></tr>
-    <tr><td><strong>Talon</strong></td><td>Capability used in the strike</td><td>Skill / modular capability (provider-agnostic)</td></tr>
+    <thead>
+      <tr><th>Term</th><th>Falconry meaning</th><th>Product mapping</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Falconer</td>
+        <td>Handler who directs the hunt</td>
+        <td>Orchestrator — plans tasks, manages scope, exercises HITL authority via the control plane</td>
+      </tr>
+      <tr>
+        <td>Peregrine</td>
+        <td>Precision hunting bird</td>
+        <td>Worker agent — executes individual tasks on an assigned plane with verified proof</td>
+      </tr>
+      <tr>
+        <td>Talon</td>
+        <td>Capability used in the strike</td>
+        <td>Skill or modular capability — provider-agnostic tooling the worker calls during execution</td>
+      </tr>
+    </tbody>
   </table>
 
   <h2>Places</h2>
   <table>
-    <tr><th>Term</th><th>Meaning</th><th>Product mapping</th></tr>
-    <tr><td><strong>Mews</strong></td><td>Permanent housing</td><td>Dev / staging environment</td></tr>
-    <tr><td><strong>Perch</strong></td><td>Observation point</td><td>Operator dashboard (task state, approvals)</td></tr>
-    <tr><td><strong>Field</strong></td><td>Hunting ground</td><td>Target execution environment</td></tr>
+    <thead>
+      <tr><th>Term</th><th>Falconry meaning</th><th>Product mapping</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Mews</td>
+        <td>Permanent housing</td>
+        <td>Development or staging environment where agents train and test safely</td>
+      </tr>
+      <tr>
+        <td>Perch</td>
+        <td>Observation point</td>
+        <td>Operator dashboard — task state, progress, and approval interface</td>
+      </tr>
+      <tr>
+        <td>Field</td>
+        <td>Hunting ground</td>
+        <td>Target execution environment — production or integration where real work happens</td>
+      </tr>
+    </tbody>
   </table>
 
   <h2>Controls</h2>
   <table>
-    <tr><th>Term</th><th>Meaning</th><th>Product mapping</th></tr>
-    <tr><td><strong>Hood</strong></td><td>Calm before release</td><td>HITL approval gate</td></tr>
-    <tr><td><strong>Jesses</strong></td><td>Leg straps / limits</td><td>Budget and runaway limits</td></tr>
-    <tr><td><strong>Creance</strong></td><td>Training tether</td><td>Control-plane tether (heartbeat / recall)</td></tr>
-    <tr><td><strong>Bell</strong></td><td>Always audible</td><td>Telemetry on every lifecycle stage</td></tr>
+    <thead>
+      <tr><th>Term</th><th>Falconry meaning</th><th>Product mapping</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hood</td>
+        <td>Calm before release</td>
+        <td>HITL approval gate — the agent pauses for human authorization before risky actions</td>
+      </tr>
+      <tr>
+        <td>Jesses</td>
+        <td>Leg straps that limit range</td>
+        <td>Budget caps and runaway limits — prevent uncontrolled resource consumption</td>
+      </tr>
+      <tr>
+        <td>Creance</td>
+        <td>Training tether</td>
+        <td>Control-plane tether — heartbeat monitoring, forced recall, and bounded execution</td>
+      </tr>
+      <tr>
+        <td>Bell</td>
+        <td>Always audible to the falconer</td>
+        <td>Telemetry — every lifecycle stage emits auditable signals: plans, executions, proofs</td>
+      </tr>
+    </tbody>
   </table>
 
-  <p class="note">Full reference architecture: <a href="https://www.aaiaas.ai/docs/harness-first-agentic-ai">AAIAAS whitepaper</a>. Control plane app: <a href="https://cp.peregrines.ai">cp.peregrines.ai</a>.</p>
+  <div class="footer-links">
+    <p>
+      Full reference architecture:
+      <a href="https://www.aaiaas.ai/docs/harness-first-agentic-ai" style="color: var(--accent);">AAIAAS Whitepaper</a>
+    </p>
+    <p>
+      Control plane application:
+      <a href="https://cp.peregrines.ai" style="color: var(--accent);">cp.peregrines.ai</a>
+    </p>
+  </div>
+
 </body>
 </html>
