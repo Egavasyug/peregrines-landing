@@ -3,121 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peregrines — Self-Improving Agentic Execution</title>
+  <title>Peregrines &mdash; Self-Improving Agentic Execution</title>
   <meta name="description" content="Peregrines builds self-improving AI agent systems with governed autonomy, proof-of-execution, and skill-loop learning.">
   <style>
-    :root {
-      --bg: #0a0a0f;
-      --fg: #e8e6e3;
-      --muted: #9a9590;
-      --accent: #c8a86e;
-      --accent-dim: #a08050;
-      --card-bg: #14141a;
-      --border: #2a2a35;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-    section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-    section:last-of-type { border-bottom: none; }
-    h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
-    h2 { font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--accent); }
-    h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
-    p { margin-bottom: 1rem; color: var(--muted); font-size: 1.05rem; }
-    .hero { padding: 8rem 0 5rem; text-align: center; border-bottom: 1px solid var(--border); }
-    .hero h1 { margin-bottom: 1.5rem; }
-    .hero .tagline { font-size: 1.4rem; color: var(--muted); margin-bottom: 2rem; }
-    .badge {
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border: 1px solid var(--accent-dim);
-      color: var(--accent);
-      font-size: 0.85rem;
-      border-radius: 999px;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem;
-    }
-    .card h3 { color: var(--fg); }
-    .card p { font-size: 0.95rem; }
-    .card .icon { font-size: 1.5rem; margin-bottom: 0.75rem; display: block; }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      background: var(--accent);
-      color: var(--bg);
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 1.05rem;
-      transition: opacity 0.2s;
-    }
-    .cta:hover { opacity: 0.85; }
-    .cta-secondary {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent-dim);
-    }
-    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; justify-content: center; }
-    .flow {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .flow-step {
-      text-align: center;
-      padding: 1.5rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      min-width: 140px;
-    }
-    .flow-step .name { font-weight: 600; color: var(--accent); font-size: 1.1rem; }
-    .flow-step .desc { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
-    .flow-arrow { color: var(--accent-dim); font-size: 1.5rem; }
-    .deploy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-    .deploy-item {
-      padding: 1.25rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      text-align: center;
-    }
-    .deploy-item .name { font-weight: 600; color: var(--fg); margin-bottom: 0.25rem; }
-    .deploy-item .desc { font-size: 0.85rem; color: var(--muted); }
-    .section-label { text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-dim); font-size: 0.8rem; margin-bottom: 0.75rem; }
-    footer { padding: 3rem 0; text-align: center; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
-    footer a { color: var(--accent); text-decoration: none; }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      .hero { padding: 5rem 0 3rem; }
-      section { padding: 3rem 0; }
-      .flow { flex-direction: column; }
-      .flow-arrow { transform: rotate(90deg); }
-    }
+    :root { --bg:#0a0a0f; --fg:#e8e6e3; --muted:#9a9590; --accent:#c8a86e; --accent-dim:#a08050; --card-bg:#14141a; --border:#2a2a35; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    .container { max-width:900px; margin:0 auto; padding:0 2rem; }
+    section { padding:5rem 0; border-bottom:1px solid var(--border); }
+    section:last-of-type { border-bottom:none; }
+    h1 { font-size:2.8rem; font-weight:700; letter-spacing:-.02em; line-height:1.15; }
+    h2 { font-size:2rem; font-weight:600; margin-bottom:1.5rem; color:var(--accent); }
+    h3 { font-size:1.25rem; font-weight:600; margin-bottom:.75rem; }
+    p { margin-bottom:1rem; color:var(--muted); font-size:1.05rem; }
+    .hero { padding:8rem 0 5rem; text-align:center; border-bottom:1px solid var(--border); }
+    .hero h1 { margin-bottom:1.5rem; }
+    .hero .tagline { font-size:1.4rem; color:var(--muted); margin-bottom:2rem; }
+    .badge { display:inline-block; padding:.35rem 1rem; border:1px solid var(--accent-dim); color:var(--accent); font-size:.85rem; border-radius:999px; margin-bottom:1.5rem; text-transform:uppercase; letter-spacing:.05em; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .card { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:1.75rem; }
+    .card h3 { color:var(--fg); }
+    .card p { font-size:.95rem; }
+    .card .icon { font-size:1.5rem; margin-bottom:.75rem; display:block; }
+    .cta { display:inline-flex; align-items:center; gap:.5rem; padding:1rem 2rem; background:var(--accent); color:var(--bg); text-decoration:none; border-radius:6px; font-weight:600; font-size:1.05rem; transition:opacity .2s; }
+    .cta:hover { opacity:.85; }
+    .cta-secondary { background:transparent; color:var(--accent); border:1px solid var(--accent-dim); }
+    .cta-group { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem; justify-content:center; }
+    .flow { display:flex; align-items:center; gap:1.5rem; margin:2rem 0; flex-wrap:wrap; justify-content:center; }
+    .flow-step { text-align:center; padding:1.5rem; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; min-width:140px; }
+    .flow-step .name { font-weight:600; color:var(--accent); font-size:1.1rem; }
+    .flow-step .desc { font-size:.85rem; color:var(--muted); margin-top:.25rem; }
+    .flow-arrow { color:var(--accent-dim); font-size:1.5rem; }
+    .deploy-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+    .deploy-item { padding:1.25rem; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; text-align:center; }
+    .deploy-item .name { font-weight:600; color:var(--fg); margin-bottom:.25rem; }
+    .deploy-item .desc { font-size:.85rem; color:var(--muted); }
+    .section-label { text-transform:uppercase; letter-spacing:.08em; color:var(--accent-dim); font-size:.8rem; margin-bottom:.75rem; }
+    footer { padding:3rem 0; text-align:center; color:var(--muted); font-size:.85rem; border-top:1px solid var(--border); }
+    footer a { color:var(--accent); text-decoration:none; }
+    @media(max-width:600px){ h1{font-size:2rem;} h2{font-size:1.5rem;} .hero{padding:5rem 0 3rem;} section{padding:3rem 0;} .flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);} }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="container">
       <span class="badge">Self-Improving AI Agents</span>
@@ -130,121 +58,76 @@
     </div>
   </header>
 
-  <!-- PROBLEM -->
   <section>
     <div class="container">
       <p class="section-label">The Problem</p>
       <h2>AI agents struggle with reliability, accountability, and growth</h2>
       <p>Most AI agent systems share three critical failures:</p>
       <div class="cards">
-        <div class="card">
-          <span class="icon">⚡</span>
-          <h3>Brittle Execution</h3>
-          <p>Agents drift on complex tasks. Without structured planning and proof-of-execution, failures compound silently.</p>
-        </div>
-        <div class="card">
-          <span class="icon">🔒</span>
-          <h3>No Governance</h3>
-          <p>Unsupervised agents are unacceptable in production. Teams need human-in-the-loop gates without sacrificing throughput.</p>
-        </div>
-        <div class="card">
-          <span class="icon">📉</span>
-          <h3>No Memory</h3>
-          <p>Agents forget. Systems repeat the same mistakes. Without a skill-learning loop, there is no compounding capability.</p>
-        </div>
+        <div class="card"><span class="icon">&#9889;</span><h3>Brittle Execution</h3><p>Agents drift on complex tasks. Without structured planning and proof-of-execution, failures compound silently.</p></div>
+        <div class="card"><span class="icon">&#128274;</span><h3>No Governance</h3><p>Unsupervised agents are unacceptable in production. Teams need human-in-the-loop gates without sacrificing throughput.</p></div>
+        <div class="card"><span class="icon">&#128209;</span><h3>No Memory</h3><p>Agents forget. Systems repeat the same mistakes. Without a skill-learning loop, there is no compounding capability.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- SOLUTION -->
   <section>
     <div class="container">
       <p class="section-label">The Solution</p>
       <h2>A platform built for governed, self-improving execution</h2>
       <p>Peregrines provides three foundational capabilities that address each failure:</p>
       <div class="cards">
-        <div class="card">
-          <span class="icon">📋</span>
-          <h3>Planner</h3>
-          <p>Deconstructs ambiguous goals into executable steps with explicit scope boundaries, verification criteria, and handoff metadata.</p>
-        </div>
-        <div class="card">
-          <span class="icon">✅</span>
-          <h3>Proof-of-Execution</h3>
-          <p>Every action produces disk evidence — commit hashes, file paths, exit codes. No claims without verification.</p>
-        </div>
-        <div class="card">
-          <span class="icon">🔄</span>
-          <h3>Skill Loop</h3>
-          <p>Patterns discovered during execution are codified into reusable skills. The system improves after every task.</p>
-        </div>
+        <div class="card"><span class="icon">&#128203;</span><h3>Planner</h3><p>Deconstructs ambiguous goals into executable steps with explicit scope boundaries, verification criteria, and handoff metadata.</p></div>
+        <div class="card"><span class="icon">&#9989;</span><h3>Proof-of-Execution</h3><p>Every action produces disk evidence &mdash; commit hashes, file paths, exit codes. No claims without verification.</p></div>
+        <div class="card"><span class="icon">&#128260;</span><h3>Skill Loop</h3><p>Patterns discovered during execution are codified into reusable skills. The system improves after every task.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section>
     <div class="container">
       <p class="section-label">How It Works</p>
       <h2>Three layers of coordination</h2>
-      <p style="text-align:center; max-width: 600px; margin: 0 auto 2rem;">Peregrines structures agent work through a clear separation of concerns:</p>
+      <p style="text-align:center;max-width:600px;margin:0 auto 2rem;">Peregrines structures agent work through a clear separation of concerns:</p>
       <div class="flow">
-        <div class="flow-step">
-          <div class="name">Orchestrator</div>
-          <div class="desc">Plans, decomposes, and routes tasks</div>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">
-          <div class="name">Workers</div>
-          <div class="desc">Execute with proof and skill lookup</div>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">
-          <div class="name">Skill Library</div>
-          <div class="desc">Reusable procedures compounding over time</div>
-        </div>
+        <div class="flow-step"><div class="name">Orchestrator</div><div class="desc">Plans, decomposes, and routes tasks</div></div>
+        <span class="flow-arrow">&#8594;</span>
+        <div class="flow-step"><div class="name">Workers</div><div class="desc">Execute with proof and skill lookup</div></div>
+        <span class="flow-arrow">&#8594;</span>
+        <div class="flow-step"><div class="name">Skill Library</div><div class="desc">Reusable procedures compounding over time</div></div>
       </div>
       <p style="text-align:center;">Each layer communicates through structured handoffs with metadata, ensuring traceability from goal to evidence.</p>
+      <p style="text-align:center;margin-top:1.5rem;font-size:.95rem;color:var(--muted);">
+        Product vocabulary (Falconer / Peregrine / Talon) is defined on the <a href="/docs/falconry-taxonomy" style="color:var(--accent);">Falconry Taxonomy</a> &mdash; explore the product vocabulary for governed agentic execution.
+      </p>
     </div>
   </section>
 
-  <!-- HITL -->
   <section>
     <div class="container">
       <p class="section-label">Governed Autonomy</p>
       <h2>Human oversight without human bottleneck</h2>
-      <p>Peregrines implements a risk-based approval model. Low-risk operations proceed autonomously with post-factum audit trails. Medium and high-risk actions — production changes, credential edits, infrastructure modifications — require explicit human approval before execution. The system never guesses at criticality; it flags risk and waits.</p>
+      <p>Peregrines implements a risk-based approval model. Low-risk operations proceed autonomously with post-factum audit trails. Medium and high-risk actions &mdash; production changes, credential edits, infrastructure modifications &mdash; require explicit human approval before execution. The system never guesses at criticality; it flags risk and waits.</p>
     </div>
   </section>
 
-  <!-- DEPLOYMENT MODES -->
   <section>
     <div class="container">
       <p class="section-label">Deployment</p>
       <h2>Deploy where you need it</h2>
       <p>Peregrines supports multiple deployment topologies to match your security and connectivity requirements:</p>
       <div class="deploy-grid">
-        <div class="deploy-item">
-          <div class="name">Cloud</div>
-          <div class="desc">Hosted on managed infrastructure with full connectivity</div>
-        </div>
-        <div class="deploy-item">
-          <div class="name">Hybrid</div>
-          <div class="desc">Split orchestration and execution across environments</div>
-        </div>
-        <div class="deploy-item">
-          <div class="name">Air-Gap</div>
-          <div class="desc">Fully isolated — no external connectivity required</div>
-        </div>
+        <div class="deploy-item"><div class="name">Cloud</div><div class="desc">Hosted on managed infrastructure with full connectivity</div></div>
+        <div class="deploy-item"><div class="name">Hybrid</div><div class="desc">Split orchestration and execution across environments</div></div>
+        <div class="deploy-item"><div class="name">Air-Gap</div><div class="desc">Fully isolated &mdash; no external connectivity required</div></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section>
-    <div class="container" style="text-align: center; padding: 6rem 0;">
+    <div class="container" style="text-align:center;padding:6rem 0;">
       <h2>Ready to build self-improving agents?</h2>
-      <p style="max-width: 500px; margin: 0 auto 2rem;">Download the whitepaper for the full architectural overview, or open the control plane to see it in action.</p>
+      <p style="max-width:500px;margin:0 auto 2rem;">Download the whitepaper for the full architectural overview, or open the control plane to see it in action.</p>
       <div class="cta-group">
         <a href="https://www.aaiaas.ai/docs/harness-first-agentic-ai" class="cta" target="_blank" rel="noopener">Whitepaper</a>
         <a href="https://cp.peregrines.ai" class="cta cta-secondary" target="_blank" rel="noopener">Open Control Plane</a>
@@ -254,7 +137,8 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Peregrines.ai — Self-Improving Agentic Execution</p>
+      <p>&copy; 2026 Peregrines.ai &mdash; Self-Improving Agentic Execution</p>
+      <p style="margin-top:1rem;">Questions or interested in governed agentic execution? Reach the Falconer at <a href="mailto:hero@peregrines.ai">hero@peregrines.ai</a></p>
     </div>
   </footer>
 
