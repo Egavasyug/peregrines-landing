@@ -1,4 +1,10 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/docs/falconry-taxonomy.html",
+      "destination": "/docs/falconry-taxonomy"
+    }
+  ]
 }
